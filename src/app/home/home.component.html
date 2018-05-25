@@ -1,0 +1,29 @@
+<h1>Usuarios</h1>
+
+<a routerLink="/usuario">+ Nuevo usuario</a>
+
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellidos</th>
+        <th>Email</th>
+        <th>Acciones</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.nombres}}</td>
+        <td>{{usuario.apellidos}}</td>
+        <td>{{usuario.email}}</td>
+        <td>
+            <button (click)="deleteUsuario(usuario.id)">Eliminar</button>
+            <br>
+            <button [routerLink]="['/usuario', usuario.id]">Actuaizar</button>
+        </td>
+    </tr>
+    </tbody>
+</table>

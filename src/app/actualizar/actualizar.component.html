@@ -1,0 +1,35 @@
+<a routerLink="/">Regresar</a>
+<h1>Nuevo Usuario</h1>
+
+<form id="formUsuario" name="formUsuario" #usuarioDatos="ngForm" (ngSubmit)="actualizarUsuario(usuarioDatos.value)">
+  <table border="0">
+    <tr>
+      <td><label>Nombres: </label></td>
+      <td><input type="text" name="nombres" id="nombres" placeholder="Nombres" [(ngModel)]="data.nombres"/>
+      </td>
+    </tr>
+    <tr>
+      <td><label>Apellidos: </label></td>
+      <td><input type="text" name="apellidos" id="apellidos" placeholder="Apellidos" [(ngModel)]="data.apellidos"/></td>
+    </tr>
+    <tr>
+      <td><label>Email: </label></td>
+      <td><input type="email" name="email" id="email" placeholder="Email" [(ngModel)]="data.email"/></td>
+    </tr>
+    <tr>
+      <td><label>Password: </label></td>
+      <td><input type="password" name="password" id="password" placeholder="Password" [(ngModel)]="data.password"/></td>
+    </tr>
+    <tr>
+      <td colspan="2"><input type="submit" value="Guardar"></td>
+    </tr>
+  </table>
+</form>
+
+<h3 *ngIf="result.mensaje">{{result.mensaje}}</h3>
+
+<div *ngIf="result.validator">
+  <div *ngFor="let error of result.validator">
+    <b style="color: red">{{error}}</b><br>
+  </div>
+</div>
